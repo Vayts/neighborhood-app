@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { THEMES } from '@constants/themes';
 import { Button } from '@src/components/UI/Button/Button';
+import { Input } from '@src/components/UI/Input/Input';
 import { AppWrapper } from './style';
 
 export const App: React.FC = () => {
@@ -12,27 +13,53 @@ export const App: React.FC = () => {
 			<AppWrapper>
 				<Button
 					clickHandler={() => null}
-					styleType='confirm'
+					styleType="confirm"
 					// disabled
 				/>
 				<Button
 					clickHandler={() => null}
-					styleType='cancel'
+					styleType="cancel"
 					// disabled
 				/>
 				<Button
 					clickHandler={() => null}
-					styleType='primary'
+					styleType="primary"
 					// disabled
 				/>
 				<Button
 					clickHandler={() => null}
-					styleType='transparent'
+					styleType="transparent"
 					// disabled
 				/>
 				<Button
 					clickHandler={() => null}
 					// disabled
+				/>
+				<Input
+					value=''
+					id='testInput'
+					onChange={() => null}
+					isValid
+					placeholder='Password'
+					label='Password'
+					type='password'
+					name='testInput'
+					width='250px'
+					margin='10px 20px'
+					isSecure
+				/>
+				<Input
+					value=''
+					id='testInput'
+					onChange={() => null}
+					isValid
+					placeholder='Password'
+					label='Password'
+					type='text'
+					name='testInput'
+					width='250px'
+					margin='10px 20px'
+					isSecure
 				/>
 				<ToastContainer
 					position="top-center"

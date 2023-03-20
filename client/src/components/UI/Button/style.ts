@@ -11,11 +11,12 @@ export const ButtonItem = styled.button<IButtonStyle>`
   display: inline-block;
   border-radius: 2px;
 	border: 1px solid transparent;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  //box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 
   &:disabled, &[disabled] {
     background-color: ${({ theme }) => theme.disabledBg};
     color: ${({ theme }) => theme.disabledTxt};
+	  border-color: ${({ theme }) => theme.disabledBorder};
 
     &:hover {
       cursor: default;

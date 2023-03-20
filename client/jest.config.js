@@ -31,7 +31,12 @@ module.exports = {
 	],
 	moduleNameMapper: {
 		'^.+\\.(css|scss)$': 'identity-obj-proxy',
-		'^/src/(.*)$': '<rootDir>src/$1',
+		'^@src/(.*)$': '<rootDir>src/$1',
+		// '^common-app/(.*)$': '/src/common-app/$1',
+		// '^core/(.*)$': '/src/core/$1',
+		// '^layout/(.*)$': '/src/layout/$1',
+		// '^pods/(.*)$': '/src/pods/$1',
+		// '^scenes/(.*)$': '/src/scenes/$1'
 	},
 	testEnvironment: 'jsdom',
 };
