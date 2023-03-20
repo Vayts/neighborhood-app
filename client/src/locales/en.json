@@ -1,3 +1,6 @@
 {
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "login": "Login",
+  "password": "Password",
+  "signIn": "Sign In"
 }

@@ -1,5 +1,6 @@
 export const THEMES = {
 	light: {
+		componentBg: '#fff',
 		bgColor: '#F9F8F8',
 		txtColor: '#2E3A59',
 		subTxtColor: '#B6B6B6',
