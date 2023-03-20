@@ -53,13 +53,12 @@ export const App: React.FC = () => {
 					id='testInput'
 					onChange={() => null}
 					isValid
-					placeholder='Password'
-					label='Password'
+					placeholder='Login'
+					label='Login'
 					type='text'
 					name='testInput'
 					width='250px'
 					margin='10px 20px'
-					isSecure
 				/>
 				<ToastContainer
 					position="top-center"

@@ -2,7 +2,7 @@ import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { Input } from './Input';
 
-describe('Button', () => {
+describe('Input', () => {
 	it('should render input with the correct value', () => {
 		const text = 'test';
 		const { getByRole } = render(<Input
