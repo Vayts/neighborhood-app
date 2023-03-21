@@ -13,6 +13,8 @@ export const THEMES = {
 		confirmHover: '#38946b',
 		dangerColor: '#db4d37',
 		dangerHover: '#d24834',
+		linkColor: '#2e7ae8',
+		linkHover: '#245eb2',
 	},
 	dark: {},
 };

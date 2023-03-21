@@ -13,6 +13,7 @@ export const App: React.FC = () => {
 				<LoginPage/>
 				<ToastContainer
 					position="top-center"
+					limit={3}
 					autoClose={3000}
 					hideProgressBar
 					newestOnTop={false}
