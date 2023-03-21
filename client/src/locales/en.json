@@ -1,6 +1,11 @@
 {
   "confirm": "Confirm",
+  "dontHaveAccount": "Don't have an account yet?",
   "login": "Login",
   "password": "Password",
-  "signIn": "Sign In"
+  "signIn": "Sign In",
+  "signInTitle": "Fill in your credentials below and Sign In.",
+  "signUpAction": "Sign Up.",
+  "smtWntWrng": "Something went wrong",
+  "wrngLoginPassword": "Wrong Login or Password"
 }

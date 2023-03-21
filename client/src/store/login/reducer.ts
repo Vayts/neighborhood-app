@@ -23,4 +23,4 @@ export const loginSlice = createSlice({
 		},
 	},
 });
-export const { setLoginData, loginRequestStart } = loginSlice.actions;
+export const { setLoginData, loginRequestStart, loginRequestEnd } = loginSlice.actions;
