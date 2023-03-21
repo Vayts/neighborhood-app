@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Loader } from '@src/components/Loader/Loader';
 import { IButton } from './types';
 import { ButtonItem } from './style';
 
@@ -17,6 +18,7 @@ export const Button: React.FC<IButton> = (props) => {
 		fw,
 		disabled,
 		clickHandler,
+		isLoading,
 	} = props;
 	return (
 		<ButtonItem
@@ -27,10 +29,10 @@ export const Button: React.FC<IButton> = (props) => {
 			fz={fz}
 			styleType={styleType}
 			fw={fw}
-			onClick={() => clickHandler()}
-			disabled={disabled}
+			onClick={(e) => clickHandler(e)}
+			disabled={disabled || isLoading}
 		>
-			{text || t('confirm')}
+			{isLoading ? <Loader size={15}/> : text || t('confirm')}
 		</ButtonItem>
 	);
 };

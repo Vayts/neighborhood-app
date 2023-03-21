@@ -1,5 +1,5 @@
 export interface IDescription {
-	fz?: string,
+	fz?: numbers,
 	margin?: string,
 	color?: string,
 	height?: string,

@@ -7,8 +7,9 @@ export interface IButton {
 	height?: string,
 	width?: string,
 	styleType?: 'transparent' | 'primary' | 'cancel' | 'confirm',
-	clickHandler: () => void,
+	clickHandler: (e) => void,
 	disabled?: boolean,
+	isLoading?: boolean,
 }
 
 export interface IButtonStyle {

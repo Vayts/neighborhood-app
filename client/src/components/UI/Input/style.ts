@@ -6,10 +6,12 @@ export const InputWrapper = styled.div<IInputStyle>`
 	flex-direction: column;
   margin: ${({ margin = '5px 0' }) => margin};
   width: ${({ width = 'auto' }) => width};
+  font-size: ${({ fz = 16 }) => `${fz}px`};
 `;
 
 export const InputLabel = styled.label`
 	margin-bottom: 10px;
+	font-size: inherit;
 `;
 
 export const InputElemWrapper = styled.div`
@@ -19,7 +21,6 @@ export const InputElemWrapper = styled.div`
 export const InputElem = styled.input<IInputStyle>`
   height: ${({ height = 'auto' }) => height};
   padding: ${({ padding = '10px 30px 10px 20px' }) => padding};
-  font-size: ${({ fz = 16 }) => `${fz}px`};
 	width: 100%;
 	border: 1px solid ${({ isValid, theme }) => (isValid ? '#E2E8F0' : theme.dangerColor)};
 	background-color: transparent;

@@ -1,5 +1,5 @@
 export interface ITitle {
-	fz?: string,
+	fz?: number,
 	margin?: string,
 	color?: string,
 	height?: string,
