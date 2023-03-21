@@ -2,15 +2,16 @@ import styled, { css } from 'styled-components';
 import { IButtonStyle } from './types';
 
 export const ButtonItem = styled.button<IButtonStyle>`
-  height: ${({ height = 'auto' }) => height};
+  height: ${({ height = '30px' }) => height};
   margin: ${({ margin = '5px 10px' }) => margin};
   padding: ${({ padding = '7px 20px' }) => padding};
   font-size: ${({ fz = 16 }) => `${fz}px`};
   font-weight: ${({ fw = 400 }) => fw};
   width: ${({ width = 'auto' }) => width};
-  display: inline-block;
+  display: block;
   border-radius: 2px;
 	border: 1px solid transparent;
+  position: relative;
   //box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 
   &:disabled, &[disabled] {
