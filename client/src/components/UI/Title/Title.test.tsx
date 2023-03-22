@@ -14,7 +14,7 @@ describe('Title', () => {
 		const component = (
 			<Title
 				margin="5px 10px"
-				fz="15px"
+				fz={15}
 				color="#ff000"
 				height='20px'
 				align='center'

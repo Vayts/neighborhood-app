@@ -35,7 +35,7 @@ export const LoginPage: React.FC = () => {
 	};
 	
 	return (
-		<LoginPageWrapper data-testid='LoginPage'>
+		<LoginPageWrapper data-testid='loginPage'>
 			<LoginWindow>
 				<LoginLogoWrapper>
 					<img src={`${STATIC_URL}/logo.svg`} alt='logo'/>

@@ -9,6 +9,30 @@ describe('Button', () => {
 		const button = getByRole('button');
 		expect(button).toHaveTextContent(text);
 	});
+	it('should render button with cancel type', () => {
+		const text = 'test';
+		const { getByRole } = render(<Button clickHandler={() => null} text={text} styleType='cancel'/>);
+		const button = getByRole('button');
+		expect(button).toHaveTextContent(text);
+	});
+	it('should render button with confirm type', () => {
+		const text = 'test';
+		const { getByRole } = render(<Button clickHandler={() => null} text={text} styleType='confirm'/>);
+		const button = getByRole('button');
+		expect(button).toHaveTextContent(text);
+	});
+	it('should render button with primary type', () => {
+		const text = 'test';
+		const { getByRole } = render(<Button clickHandler={() => null} text={text} styleType='primary'/>);
+		const button = getByRole('button');
+		expect(button).toHaveTextContent(text);
+	});
+	it('should render button with transparent type', () => {
+		const text = 'test';
+		const { getByRole } = render(<Button clickHandler={() => null} text={text} styleType='transparent'/>);
+		const button = getByRole('button');
+		expect(button).toHaveTextContent(text);
+	});
 	it('should render button with the correct default styles', () => {
 		const text = 'test';
 		const { getByRole } = render(<Button clickHandler={() => null} text={text}/>);

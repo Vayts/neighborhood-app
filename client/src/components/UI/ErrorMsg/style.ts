@@ -9,6 +9,6 @@ export const ErrorMsgWrapper = styled.div<IErrorWrapperStyle>`
 export const ErrorMsgText = styled.p`
 	margin: 0;
 	font-size: 12px;
-	color: ${({ theme }) => theme.errorColor};
+	color: ${({ theme }) => theme.dangerColor};
 	text-align: center;
 `;

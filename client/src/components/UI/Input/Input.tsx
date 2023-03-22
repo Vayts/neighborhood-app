@@ -42,6 +42,7 @@ export const Input: React.FC<IInput> = (props) => {
 				/>
 				{isSecure && (
 					<InputSecureIcon
+						data-testid='secureIcon'
 						className="icon-password"
 						onMouseDown={() => setShow(!show)}
 						onMouseUp={() => setShow(!show)}
