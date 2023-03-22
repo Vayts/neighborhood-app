@@ -35,7 +35,7 @@ export const Input: React.FC<IInput> = (props) => {
 					type={isSecure && show ? 'text' : type || 'text'}
 					height={height}
 					padding={padding}
-					isValid={isValid || true}
+					isValid={isValid !== undefined ? isValid : true}
 					fz={fz}
 					id={id}
 					aria-label={name}

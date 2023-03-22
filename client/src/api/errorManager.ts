@@ -8,6 +8,8 @@ function generateErrorMessage(error) {
 	switch (response) {
 	case ERRORS.WRONG_LOGIN_PASSWORD:
 		return 'wrngLoginPassword';
+	case ERRORS.USER_ALREADY_EXIST:
+		return 'loginInUse';
 	default:
 		return 'smtWntWrng';
 	}

@@ -1,6 +1,7 @@
 import { Body, Controller, Post, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginUserDto } from '../../dto/loginUser.dto';
+import { CreateUserDto } from '../../dto/createUser.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -11,7 +12,14 @@ export class AuthController {
     @Res({ passthrough: true }) response: Response,
     @Body() dto: LoginUserDto,
   ) {
-    console.log('asdasd');
     return this.authService.login(response, dto);
+  }
+
+  @Post('/register')
+  register(
+    @Res({ passthrough: true }) response: Response,
+    @Body() dto: CreateUserDto,
+  ) {
+    return this.authService.register(response, dto);
   }
 }

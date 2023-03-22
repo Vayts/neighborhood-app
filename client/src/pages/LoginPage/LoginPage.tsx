@@ -29,7 +29,7 @@ export const LoginPage: React.FC = () => {
 		dispatch(setLoginData({ key: e.target.name, value: e.target.value }));
 	};
 	
-	const submitHandler = (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(loginRequest(values));
 	};
@@ -66,10 +66,11 @@ export const LoginPage: React.FC = () => {
 						type='password'
 						placeholder={t('password')}
 						label={t('password')}
+						isSecure
 					/>
 					<ErrorMsg show={false}/>
 					<Button
-						clickHandler={(e) => submitHandler(e)}
+						clickHandler={(e) => handleSubmit(e)}
 						text={t('signIn')}
 						isLoading={isLoading}
 						disabled={!values.login.length || !values.password.length}
