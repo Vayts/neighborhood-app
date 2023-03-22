@@ -60,4 +60,48 @@ describe('Input', () => {
 		const input = getByRole('textbox');
 		expect(input.parentNode.parentNode).toHaveStyle('margin: 10px 30px');
 	});
+	it('should toggle the password visibility when the secure icon is clicked', () => {
+		const data = {
+			value: '1',
+		};
+		const onChange = jest.fn();
+		const { getByTestId, getByLabelText } = render(<Input
+			onChange={(value: string) => onChange(value)}
+			value={data.value}
+			id='testId'
+			name='testName'
+			type='password'
+			label='password'
+			margin='10px 30px'
+			padding='20px 40px'
+			isSecure
+		/>);
+		const icon = getByTestId('secureIcon');
+		fireEvent.mouseUp(icon);
+		expect(getByLabelText('password')).toHaveAttribute('type', 'text');
+		fireEvent.mouseDown(icon);
+		expect(getByLabelText('password')).toHaveAttribute('type', 'password');
+	});
+	it('should toggle the password visibility when the secure icon is touched', () => {
+		const data = {
+			value: '1',
+		};
+		const onChange = jest.fn();
+		const { getByTestId, getByLabelText } = render(<Input
+			onChange={(value: string) => onChange(value)}
+			value={data.value}
+			id='testId'
+			name='testName'
+			type='password'
+			label='password'
+			margin='10px 30px'
+			padding='20px 40px'
+			isSecure
+		/>);
+		const icon = getByTestId('secureIcon');
+		fireEvent.touchStart(icon);
+		expect(getByLabelText('password')).toHaveAttribute('type', 'text');
+		fireEvent.touchEnd(icon);
+		expect(getByLabelText('password')).toHaveAttribute('type', 'password');
+	});
 });

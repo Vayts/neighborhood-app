@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Loader } from '@src/components/Loader/Loader';
-import { IButton } from './types';
-import { ButtonItem } from './style';
+import { IButton } from '@src/components/UI/Button/types';
+import { ButtonItem } from '@src/components/UI/Button/style';
 
 export const Button: React.FC<IButton> = (props) => {
 	const { t } = useTranslation();

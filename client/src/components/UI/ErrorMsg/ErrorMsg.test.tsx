@@ -1,11 +1,18 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import { ErrorMsg } from '@src/components/UI/ErrorMsg/ErrorMsg';
+import { ThemeProvider } from 'styled-components';
+import { THEMES } from '@constants/themes';
 
 describe('Error Message', () => {
 	it('should render with correct text', () => {
 		const text = 'Test Error';
-		const { getByText } = render(<ErrorMsg show>{text}</ErrorMsg>);
+		const { getByText } = render(
+			<ThemeProvider theme={THEMES.light}>
+				<ErrorMsg show>{text}</ErrorMsg>
+			</ThemeProvider>,
+			
+		);
 		const errorMsg = getByText(text);
 		expect(errorMsg).toBeInTheDocument();
 	});
