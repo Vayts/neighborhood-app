@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { UserDocument } from '../../schemas/user.schema';
 import { UserService } from '../user/user.service';
 import { InvalidDataException } from '../../exception/invalidData.exception';
@@ -22,6 +22,25 @@ export class AuthService {
       maxAge: 1000 * 60 * 60 * 24 * 30,
     });
     const userDTO = new SimpleUserDto(user);
+    return { ...userDTO, token: tokens.access };
+  }
+
+  async register(res, dto) {
+    const isExist = await this.userService.getUserByLogin(dto.login);
+    if (isExist)
+      throw new HttpException('USER_ALREADY_EXIST', HttpStatus.BAD_REQUEST);
+    const hashPassword = await bcrypt.hash(dto.password, 10);
+    const user: UserDocument[] = await this.userService.createUser({
+      ...dto,
+      password: hashPassword,
+    });
+    const tokens = this.tokenService.generateTokens(user[0]);
+    await this.tokenService.setToken(user[0]._id, tokens.refresh);
+    res.cookie('arvalesa', tokens.refresh, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 30,
+    });
+    const userDTO = new SimpleUserDto(user[0]);
     return { ...userDTO, token: tokens.access };
   }
 
