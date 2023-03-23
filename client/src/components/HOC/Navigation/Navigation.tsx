@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavigationWrapper, PageLink, PageLinkIcon, PageLinkText } from '@hoc/Navigation/style';
 import { useTranslation } from 'react-i18next';
-import { Title } from '@src/components/UI/Title/Title';
 
 export const Navigation: React.FC = () => {
 	const { t } = useTranslation();
