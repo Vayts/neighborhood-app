@@ -21,6 +21,9 @@ export const loginSlice = createSlice({
 		loginRequestEnd: (state) => {
 			state.isLoading = false;
 		},
+		resetLogin: (state) => {
+			state.data = initialState.data;
+		},
 	},
 });
-export const { setLoginData, loginRequestStart, loginRequestEnd } = loginSlice.actions;
+export const { setLoginData, loginRequestStart, loginRequestEnd, resetLogin } = loginSlice.actions;

@@ -4,10 +4,12 @@ import rootSaga from '@src/store/saga';
 import { loginSlice } from '@src/store/login/reducer';
 import { userSlice } from '@src/store/user/reducer';
 import { registerSlice } from '@src/store/register/reducer';
+import { baseSlice } from '@src/store/base/reducer';
 
 const sagaMiddleware = createSagaMiddleware();
 export const store = configureStore({
 	reducer: {
+		base: baseSlice.reducer,
 		user: userSlice.reducer,
 		login: loginSlice.reducer,
 		register: registerSlice.reducer,

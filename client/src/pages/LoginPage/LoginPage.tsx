@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
 	LoginLogoWrapper,
 	LoginPageLink,
@@ -12,18 +12,32 @@ import { useTranslation } from 'react-i18next';
 import { Input } from '@src/components/UI/Input/Input';
 import { useAppDispatch, useAppSelector } from '@src/hooks/hooks';
 import { selectLoginData, selectLoginLoading } from '@src/store/login/selector';
-import { setLoginData } from '@src/store/login/reducer';
+import { resetLogin, setLoginData } from '@src/store/login/reducer';
 import { Button } from '@src/components/UI/Button/Button';
 import { ErrorMsg } from '@src/components/UI/ErrorMsg/ErrorMsg';
 import { Description } from '@src/components/UI/Description/Description';
 import { STATIC_URL } from '@constants/base';
 import { loginRequest } from '@src/store/login/actions';
+import { selectUser } from '@src/store/user/selectors';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginPage: React.FC = () => {
+	const user = useAppSelector(selectUser);
 	const values = useAppSelector(selectLoginData);
 	const isLoading = useAppSelector(selectLoginLoading);
+	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
+	
+	useEffect(() => {
+		if (user) {
+			navigate('/');
+		}
+		
+		return () => {
+			dispatch(resetLogin);
+		};
+	}, [user]);
 	
 	const handleChange = (e) => {
 		dispatch(setLoginData({ key: e.target.name, value: e.target.value }));
