@@ -11,9 +11,10 @@ export const LayoutMainContent = styled.div`
 `;
 
 export const LayoutOutletWrapper = styled.div`
-	padding: 30px 30px 0;
+	//padding: 30px 30px 0;
 	flex-grow: 1;
-	width: auto;
+	max-width: 1220px;
+	margin: 0 auto;
 	height: 100vh;
   display: flex;
 	flex-direction: column;

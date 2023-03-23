@@ -6,11 +6,13 @@ import * as bcrypt from 'bcryptjs';
 import { TokenService } from '../token/token.service';
 import { SimpleUserDto } from 'src/dto/user.dto';
 import { ERRORS } from '../../constants/errors';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
   constructor(
     private userService: UserService,
+    private jwtService: JwtService,
     private tokenService: TokenService,
   ) {}
   async login(res, dto) {
@@ -58,5 +60,31 @@ export class AuthService {
       throw new InvalidDataException({ message: ERRORS.WRONG_LOGIN_PASSWORD });
     }
     throw new InvalidDataException({ message: ERRORS.WRONG_LOGIN_PASSWORD });
+  }
+
+  async refreshUser(req) {
+    const jwtToken = req.cookies.arvalesa;
+    if (!jwtToken) return null;
+    const tokenCheck = await this.tokenService.getTokenByToken(jwtToken);
+    if (!tokenCheck)
+      throw new HttpException(ERRORS.UNDEFINED_TOKEN, HttpStatus.UNAUTHORIZED);
+
+    try {
+      const user: UserDocument | null = this.jwtService.verify(jwtToken, {
+        secret: process.env.JWT_REFRESH_SECRET || 'refresh',
+      });
+      const newTokens = this.tokenService.generateTokens(user);
+
+      if (user._id !== tokenCheck.user_id.toString()) {
+        return Promise.reject(ERRORS.UNDEFINED_TOKEN);
+      }
+
+      return { ...user, token: newTokens.access };
+    } catch (e) {
+      if (e === ERRORS.UNDEFINED_TOKEN) {
+        throw new HttpException(ERRORS.TOKEN_EXPIRED, HttpStatus.UNAUTHORIZED);
+      }
+      throw new HttpException(ERRORS.NOT_AUTHORIZED, HttpStatus.UNAUTHORIZED);
+    }
   }
 }

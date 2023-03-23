@@ -5,10 +5,12 @@ import { UserService } from '../user/user.service';
 import { TokenModule } from '../token/token.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from '../../schemas/user.schema';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
     TokenModule,
+    JwtModule.register({}),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
   ],
   controllers: [AuthController],
