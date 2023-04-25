@@ -11,11 +11,7 @@ export const LayoutMainContent = styled.div`
 `;
 
 export const LayoutOutletWrapper = styled.div`
-	//padding: 30px 30px 0;
-	display: flex;
-	flex-grow: 1;
-	max-width: 1220px;
-	margin: 0 auto;
+	padding: 20px 20px 20px 100px;
 	height: 100vh;
 
   ::-webkit-scrollbar {
