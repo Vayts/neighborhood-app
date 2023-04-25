@@ -7,8 +7,8 @@ export const Layout: React.FC = () => {
 	return (
 		<LayoutWrapper>
 			<LayoutMainContent>
+				<Navigation/>
 				<LayoutOutletWrapper>
-					<Navigation/>
 					<Outlet/>
 				</LayoutOutletWrapper>
 			</LayoutMainContent>

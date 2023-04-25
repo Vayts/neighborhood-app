@@ -64,7 +64,8 @@ export class AuthService {
 
   async refreshUser(req) {
     const jwtToken = req.cookies.arvalesa;
-    if (!jwtToken) return null;
+    if (!jwtToken)
+      throw new HttpException(ERRORS.UNDEFINED_TOKEN, HttpStatus.UNAUTHORIZED);
     const tokenCheck = await this.tokenService.getTokenByToken(jwtToken);
     if (!tokenCheck)
       throw new HttpException(ERRORS.UNDEFINED_TOKEN, HttpStatus.UNAUTHORIZED);

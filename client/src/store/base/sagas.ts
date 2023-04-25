@@ -14,7 +14,6 @@ function* appSaga(): SagaIterator {
 		}
 	} catch (e) {
 		yield put(loadAppEnd());
-		return null;
 	}
 }
 export function* watchApp(): SagaIterator {
