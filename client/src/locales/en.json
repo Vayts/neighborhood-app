@@ -6,6 +6,7 @@
   "confirm": "Confirm",
   "confirmPassword": "Confirm Password",
   "confirmPasswordError": "Password and confirm password must match",
+  "createNeighborhood": "Create neighborhood",
   "dontHaveAccount": "Don't have an account yet?",
   "firstName": "First Name",
   "incorrectValue": "Incorrect Value",

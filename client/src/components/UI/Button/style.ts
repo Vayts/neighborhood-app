@@ -9,7 +9,7 @@ export const ButtonItem = styled.button<IButtonStyle>`
   font-weight: ${({ fw = 400 }) => fw};
   width: ${({ width = 'auto' }) => width};
   display: block;
-  border-radius: 2px;
+  border-radius: ${({ br = '2px' }) => br};
 	border: 1px solid transparent;
   position: relative;
   //box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
@@ -84,4 +84,18 @@ export const ButtonItem = styled.button<IButtonStyle>`
       }
     `;
 	}}
+`;
+
+export const ButtonContent = styled.div`
+  display: flex;
+  justify-content: center;
+	align-items: center;
+`;
+
+export const ButtonIcon = styled.span<IButtonStyle>`
+  font-size: ${({ fz = 16 }) => `${fz}px`};
+`;
+
+export const ButtonText = styled.p`
+	margin: 0 5px;
 `;

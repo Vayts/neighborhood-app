@@ -13,6 +13,7 @@ export const LayoutMainContent = styled.div`
 export const LayoutOutletWrapper = styled.div`
 	padding: 20px 20px 20px 100px;
 	height: 100vh;
+	flex-grow: 1;
 
   ::-webkit-scrollbar {
     width: 10px;

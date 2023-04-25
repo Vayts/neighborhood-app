@@ -10,6 +10,8 @@ export interface IButton {
 	clickHandler: (e) => void,
 	disabled?: boolean,
 	isLoading?: boolean,
+	icon?: string,
+	br?: string,
 }
 
 export interface IButtonStyle {
@@ -20,5 +22,6 @@ export interface IButtonStyle {
 	height?: string,
 	width?: string,
 	disabled?: boolean,
+	br?: string,
 	styleType?: 'transparent' | 'primary' | 'cancel' | 'confirm',
 }
