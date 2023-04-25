@@ -6,7 +6,7 @@ export const THEMES = {
 		subTxtColor: '#B6B6B6',
 		primaryRGB: 'rgb(58,100,237, 0.3)',
 		primary: '#3a64ed',
-		primaryHover: '#3860e8',
+		primaryHover: '#2d4ebc',
 		disabledBg: '#ececec',
 		disabledBorder: '#e0e0e0',
 		disabledTxt: '#5E6C84',
