@@ -25,5 +25,6 @@
   "signUpAction": "Sign Up.",
   "signUpTitle": "Fill in your details below and Sign Up",
   "smtWntWrng": "Something went wrong",
-  "wrngLoginPassword": "Wrong Login or Password"
+  "wrngLoginPassword": "Wrong Login or Password",
+  "yourNeighborhoods": "Your neighborhoods"
 }
