@@ -25,5 +25,6 @@
   "signUpAction": "Зареєструватися.",
   "signUpTitle": "Заповніть свої дані нижче та зареєструйтесь",
   "smtWntWrng": "Щось пішло не так",
-  "wrngLoginPassword": "Неправильний логін або пароль"
+  "wrngLoginPassword": "Неправильний логін або пароль",
+  "yourNeighborhoods": "Ваші сусідства"
 }

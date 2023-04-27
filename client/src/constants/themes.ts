@@ -5,7 +5,7 @@ export const THEMES = {
 		txtColor: '#2E3A59',
 		subTxtColor: '#B6B6B6',
 		primaryRGB: 'rgb(58,100,237, 0.3)',
-		primary: '#3a64ed',
+		primary: '#5051F9',
 		primaryHover: '#2d4ebc',
 		disabledBg: '#ececec',
 		disabledBorder: '#e0e0e0',
