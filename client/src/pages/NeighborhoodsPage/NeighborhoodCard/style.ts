@@ -14,18 +14,14 @@ export const NeighborhoodCardWrapper = styled.li`
 	&:hover {
 		border-color: ${({ theme }) => theme.primary};
 		background-color: ${({ theme }) => `${theme.primaryHover}14`};
-		cursor: pointer;
 		transition: all 0.1s;
 	}
 `;
 
-export const NeighborhoodCardTopContent = styled.div``;
-
-export const Ava = styled.div`
-	width: 50px;
-	height: 50px;
-	background-color: ${({ theme }) => theme.primary};
-	border-radius: 50%;
+export const NeighborhoodCardTopContent = styled.div`
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
 `;
 
 export const NeighborhoodCardBottomContent = styled.div``;
