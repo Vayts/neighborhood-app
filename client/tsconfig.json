@@ -44,11 +44,9 @@
     "node_modules",
     "**/*.js",
     "**/*.jsx",
-//    "**/*.test.jsx",
-//    "**/*.test.js",
-//    "**/*.test.ts",
-//    "**/*.test.tsx",
-//    "**/*.spec.tsx",
-//    "**/*.spec.ts"
+    "**/*.test.jsx",
+    "**/*.test.js",
+    "**/*.test.ts",
+    "**/*.test.tsx"
   ],
 }

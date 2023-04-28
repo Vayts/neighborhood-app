@@ -11,9 +11,12 @@ export const LayoutMainContent = styled.div`
 `;
 
 export const LayoutOutletWrapper = styled.div`
-	padding: 20px 20px 20px 100px;
-	height: 100vh;
+	padding: 30px 30px 0;
 	flex-grow: 1;
+	width: auto;
+	height: 100vh;
+  display: flex;
+	flex-direction: column;
 
   ::-webkit-scrollbar {
     width: 10px;
