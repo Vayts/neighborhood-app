@@ -27,7 +27,7 @@ module.exports = {
 		'/coverage/',
 		'index.tsx',
 		'src/store/index.ts',
-		'src/store/saga.ts',
+		'src/store/sagas.ts',
 	],
 	moduleNameMapper: {
 		'^.+\\.(css|scss)$': 'identity-obj-proxy',

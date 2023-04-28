@@ -4,4 +4,7 @@ export const ROUTES = {
 		register: '/auth/register',
 		refresh: '/auth/refresh',
 	},
+	neighborhoods: {
+		userNeighborhoods: '/neighborhoods/all',
+	},
 };
