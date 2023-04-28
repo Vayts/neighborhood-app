@@ -1,25 +1,8 @@
 export const THEMES = {
 	light: {
-		componentBg: '#fff',
-		bgColor: '#F9F8F8',
-		txtColor: '#2E3A59',
-		subTxtColor: '#768396',
-		primaryRGB: 'rgb(58,100,237, 0.3)',
-		primary: '#5051F9',
-		primaryHover: '#2d4ebc',
-		secondColor: '#1EA7FF',
-		secondColorHover: '#1885ca',
-		thirdColor: '#F7B000',
-		thirdColorHover: '#d19601',
-		disabledBg: '#ececec',
-		disabledBorder: '#e0e0e0',
-		disabledTxt: '#5E6C84',
-		confirmColor: '#3e9970',
-		confirmHover: '#38946b',
-		dangerColor: '#db4d37',
-		dangerHover: '#d24834',
-		linkColor: '#2e7ae8',
-		linkHover: '#245eb2',
+		
 	},
-	dark: {},
+	dark: {
+	
+	},
 };
