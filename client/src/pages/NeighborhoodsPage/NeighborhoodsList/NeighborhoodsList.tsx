@@ -25,7 +25,7 @@ export const NeighborhoodsList: React.FC = () => {
 	return (
 		<NeighborhoodsListWrapper>
 			<NeighborhoodsListControls>
-				<Title fz={18} margin='0 0 15px'>{`${t('yourNeighborhoods')} (4/6)`}</Title>
+				<Title fz={18} margin='0 0 15px'>{`${t('yourNeighborhoods')} (${neighborhoods.length}/6)`}</Title>
 			</NeighborhoodsListControls>
 			<NeighborhoodsListContent>
 				{neighborhoods.map((item) => {

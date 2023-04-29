@@ -6,6 +6,7 @@ export const AvatarFillerWrapper = styled.div<IAvatarFillerStyle>`
   height: ${({ size = 35 }) => `${size}px`};
 	background-color: ${({ theme }) => theme.primary};
 	margin: ${({ margin = '5px 0' }) => margin};
+	font-size: ${({ size = 35 }) => `${size / 2}px`};;
 	text-transform: uppercase;
 	display: flex;
   justify-content: center;
