@@ -4,6 +4,7 @@ export const THEMES = {
 		bgColor: '#F9F8F8',
 		txtColor: '#2E3A59',
 		subTxtColor: '#768396',
+		lightGray: '#F3F3F4',
 		primaryRGB: 'rgb(58,100,237, 0.3)',
 		primary: '#5051F9',
 		primaryHover: '#2d4ebc',
