@@ -3,7 +3,7 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { userNeighborhoodsRequest } from '@src/store/neighborhoods/actions';
 import { errorManager } from '@src/api/errorManager';
 import { ERRORS } from '@constants/errors';
-import { userNeighborhoodsRequestEnd, userNeighborhoodsRequestStart } from '@src/store/neighborhoods/reducer';
+import { setUserNeighborhoods, userNeighborhoodsRequestEnd, userNeighborhoodsRequestStart } from '@src/store/neighborhoods/reducer';
 import { tokenExpired } from '@src/store/user/saga';
 import { selectUser } from '@src/store/user/selectors';
 import { generateAxiosWithToken } from '@src/api/axiosPrivate';
@@ -16,7 +16,8 @@ function* userNeighborhoodsSaga() {
 		const user = yield select(selectUser);
 		const axiosPrivate = generateAxiosWithToken(user);
 		const response = yield call(getRequest, ROUTES.neighborhoods.userNeighborhoods, axiosPrivate);
-		console.log(response);
+		yield put(setUserNeighborhoods(response.data));
+		yield put(userNeighborhoodsRequestEnd());
 	} catch (e) {
 		if (e?.response?.data?.message === ERRORS.NOT_AUTHORIZED) {
 			yield call(tokenExpired, () => userNeighborhoodsRequest());
