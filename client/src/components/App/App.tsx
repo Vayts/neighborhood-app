@@ -12,9 +12,12 @@ import { useAppDispatch, useAppSelector } from '@src/hooks/hooks';
 import { loadApp } from '@src/store/base/reducer';
 import { selectAppLoading } from '@src/store/base/selectors';
 import { Layout } from '@hoc/Layout/Layout';
+import { Modal } from '@src/components/Modal/Modal';
+import { selectModalType } from '@src/store/modal/selectors';
 import { AppWrapper } from './style';
 
 export const App: React.FC = () => {
+	const isModalActive = useAppSelector(selectModalType);
 	const isLoading = useAppSelector(selectAppLoading);
 	const dispatch = useAppDispatch();
 	
@@ -47,6 +50,7 @@ export const App: React.FC = () => {
 					draggable={false}
 					theme="colored"
 				/>
+				{isModalActive && <Modal/>}
 			</AppWrapper>
 		</ThemeProvider>
 	);

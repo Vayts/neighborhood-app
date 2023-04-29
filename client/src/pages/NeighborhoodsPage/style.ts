@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const NeighborhoodsPageWrapper = styled.div`
-
 `;
 export const NeighborhoodsPageTitle = styled.div`
   display: flex;

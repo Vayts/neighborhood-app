@@ -6,6 +6,7 @@ import { userSlice } from '@src/store/user/reducer';
 import { registerSlice } from '@src/store/register/reducer';
 import { baseSlice } from '@src/store/base/reducer';
 import { neighborhoodsSlice } from '@src/store/neighborhoods/reducer';
+import { modalSlice } from '@src/store/modal/reducer';
 
 const sagaMiddleware = createSagaMiddleware();
 export const store = configureStore({
@@ -15,6 +16,7 @@ export const store = configureStore({
 		login: loginSlice.reducer,
 		register: registerSlice.reducer,
 		neighborhoods: neighborhoodsSlice.reducer,
+		modal: modalSlice.reducer,
 	},
 	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 });

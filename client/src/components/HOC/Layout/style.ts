@@ -14,6 +14,7 @@ export const LayoutOutletWrapper = styled.div`
 	padding: 20px 20px 20px 100px;
 	height: 100vh;
 	flex-grow: 1;
+	overflow: auto;
 
   ::-webkit-scrollbar {
     width: 10px;
