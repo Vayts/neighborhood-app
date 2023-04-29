@@ -4,7 +4,6 @@ export const NeighborhoodsListWrapper = styled.div`
   background: #FFFFFF;
   border-radius: 14px;
 	padding: 30px;
-	height: 10000px;
 `;
 
 export const NeighborhoodsListControls = styled.div`
