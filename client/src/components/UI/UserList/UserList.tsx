@@ -10,7 +10,7 @@ export const UserList: React.FC<IUserList> = ({ users, clickable, margin, size }
 	const generateFullUserList = () => {
 		return (
 			users.map((item) => {
-				return <UserListItem size={size}>{item.login.slice(0, 1)}</UserListItem>;
+				return <UserListItem key={item._id} size={size}>{item.login.slice(0, 1)}</UserListItem>;
 			})
 		);
 	};
@@ -19,7 +19,7 @@ export const UserList: React.FC<IUserList> = ({ users, clickable, margin, size }
 		return (
 			<>
 				{users.slice(0, 2).map((item) => {
-					return <UserListItem size={size}>{item.login.slice(0, 1)}</UserListItem>;
+					return <UserListItem key={item._id} size={size}>{item.login.slice(0, 1)}</UserListItem>;
 				})}
 				<UserListItemFiller>{`+${users.length - 2}`}</UserListItemFiller>
 			</>

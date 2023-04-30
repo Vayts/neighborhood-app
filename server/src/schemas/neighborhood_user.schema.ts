@@ -15,9 +15,11 @@ export class Neighborhood_Users {
 	@Prop()
 	role: string;
 	
+	@Prop()
+	status: boolean;
+	
 	@Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Neighborhood' })
 	neighborhood_id: Neighborhood;
-	
 	
 }
 

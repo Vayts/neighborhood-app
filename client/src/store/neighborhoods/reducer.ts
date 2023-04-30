@@ -8,8 +8,9 @@ const initialState: INeighborhoodsState = {
 		isLoading: true,
 	},
 	search: {
+		searchValue: '',
 		data: [],
-		isLoading: true,
+		isLoading: false,
 	},
 };
 
@@ -26,11 +27,27 @@ export const neighborhoodsSlice = createSlice({
 		setUserNeighborhoods: (state, action: PayloadAction<INeighborhood[]>) => {
 			state.user.data = action.payload;
 		},
+		setSearchValue: (state, action: PayloadAction<string>) => {
+			state.search.searchValue = action.payload;
+		},
+		setSearchNeighborhoods: (state, action: PayloadAction<INeighborhood[]>) => {
+			state.search.data = action.payload;
+		},
+		searchRequestStart: (state) => {
+			state.search.isLoading = true;
+		},
+		searchRequestEnd: (state) => {
+			state.search.isLoading = false;
+		},
 	},
 });
 
 export const { 
 	userNeighborhoodsRequestStart, 
 	userNeighborhoodsRequestEnd, 
-	setUserNeighborhoods, 
+	setUserNeighborhoods,
+	setSearchValue,
+	searchRequestStart,
+	setSearchNeighborhoods,
+	searchRequestEnd,
 } = neighborhoodsSlice.actions;

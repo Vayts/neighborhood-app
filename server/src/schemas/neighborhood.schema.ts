@@ -17,3 +17,5 @@ export class Neighborhood {
 }
 
 export const NeighborhoodSchema = SchemaFactory.createForClass(Neighborhood);
+
+NeighborhoodSchema.index({ title: 'text' });

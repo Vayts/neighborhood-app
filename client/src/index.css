@@ -44,6 +44,9 @@ code {
 }
 
 
+.icon-add-user:before {
+  content: "\e941";
+}
 .icon-menu:before {
   content: "\e900";
 }
@@ -239,4 +242,3 @@ code {
 .icon-infinity:before {
   content: "\e940";
 }
-
