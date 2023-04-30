@@ -15,6 +15,7 @@
   "login": "Login",
   "loginInUse": "Login is already in use",
   "mainPage": "Main",
+  "members": "{{value}} member(-s)",
   "neighborhoods": "Neighborhoods",
   "notifications": "Notifications",
   "password": "Password",

@@ -6,5 +6,6 @@ export const ROUTES = {
 	},
 	neighborhoods: {
 		userNeighborhoods: '/neighborhoods/all',
+		searchNeighborhoods: '/neighborhoods/search',
 	},
 };

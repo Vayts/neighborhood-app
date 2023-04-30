@@ -6,6 +6,7 @@ export interface INeighborhoodsState {
 		isLoading: boolean,
 	},
 	search: {
+		searchValue: string,
 		data: INeighborhood[],
 		isLoading: boolean,
 	}

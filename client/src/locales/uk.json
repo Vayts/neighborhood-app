@@ -15,6 +15,7 @@
   "login": "Логін",
   "loginInUse": "Логін вже використовується",
   "mainPage": "Головна",
+  "members": "{{value}} учасник(-ів)",
   "neighborhoods": "Сусідства",
   "notifications": "Повідомлення",
   "password": "Пароль",

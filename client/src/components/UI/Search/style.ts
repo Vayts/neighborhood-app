@@ -18,10 +18,12 @@ export const SearchInput = styled.input`
   border-radius: 10px;
   border: 1px solid #ECECED;
   background-color: #f3f3f3;
+	outline: none;
 	
-	&::placeholder {
-    font-weight: 600;
+	&:focus {
+		border: 1px solid ${({ theme }) => theme.primary};
 	}
+
 `;
 
 export const SearchIcon = styled.span`

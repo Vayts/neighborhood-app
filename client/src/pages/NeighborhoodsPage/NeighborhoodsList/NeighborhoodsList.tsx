@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { userNeighborhoodsRequest } from '@src/store/neighborhoods/actions';
 import { useAppSelector } from '@src/hooks/hooks';
 import { selectUserNeighborhoods, selectUserNeighborhoodsLoading } from '@src/store/neighborhoods/selectors';
+import { Loader } from '@src/components/Loader/Loader';
 
 export const NeighborhoodsList: React.FC = () => {
 	const neighborhoods = useAppSelector(selectUserNeighborhoods);
@@ -27,11 +28,13 @@ export const NeighborhoodsList: React.FC = () => {
 			<NeighborhoodsListControls>
 				<Title fz={18} margin='0 0 15px'>{`${t('yourNeighborhoods')} (${neighborhoods.length}/6)`}</Title>
 			</NeighborhoodsListControls>
-			<NeighborhoodsListContent>
-				{neighborhoods.map((item) => {
-					return (<NeighborhoodCard neighborhood={item}/>);
-				})}
-			</NeighborhoodsListContent>
+			{isLoading ? <Loader/> : (
+				<NeighborhoodsListContent>
+					{neighborhoods.map((item) => {
+						return (<NeighborhoodCard key={item._id} neighborhood={item}/>);
+					})}
+				</NeighborhoodsListContent>
+			)}
 		</NeighborhoodsListWrapper>
 	);
 };

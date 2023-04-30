@@ -19,7 +19,6 @@ export const ModalWrapper = styled.div`
 
 export const ModalDialog = styled.div`
   position: relative;
-	padding: 0 0 20px;
 	min-width: 320px;
 	background-color: ${({ theme }) => theme.componentBg};
 	border-radius: 10px;
@@ -30,6 +29,7 @@ export const ModalClose = styled.span`
 	top: 10px;
 	right: 10px;
 	font-size: 20px;
+	z-index: 51;
 	color: ${({ theme }) => theme.subTxtColor};
 	
 	&:hover {
