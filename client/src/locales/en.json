@@ -1,5 +1,6 @@
 {
   "alreadyHaveAnAccount": "Already have an Account?",
+  "alreadyMember": "Already a member",
   "atLeast": "Must be at least {{value}} characters",
   "atLeast1Number": "At least 1 number",
   "atLeast1UpperCase": "At least 1 upper case character",
@@ -11,6 +12,7 @@
   "firstName": "First Name",
   "incorrectValue": "Incorrect Value",
   "lastName": "Last Name",
+  "leaveRequest": "Leave a request",
   "lessThan": "Must be less than {{value}} characters",
   "login": "Login",
   "loginInUse": "Login is already in use",
@@ -19,6 +21,7 @@
   "neighborhoods": "Neighborhoods",
   "notifications": "Notifications",
   "password": "Password",
+  "requestAlreadySent": "Request already sent",
   "requiredField": "Required Field",
   "search": "Search",
   "signIn": "Sign In",

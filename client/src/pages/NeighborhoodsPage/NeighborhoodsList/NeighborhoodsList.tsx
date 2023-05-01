@@ -28,7 +28,8 @@ export const NeighborhoodsList: React.FC = () => {
 			<NeighborhoodsListControls>
 				<Title fz={18} margin='0 0 15px'>{`${t('yourNeighborhoods')} (${neighborhoods.length}/6)`}</Title>
 			</NeighborhoodsListControls>
-			{isLoading ? <Loader/> : (
+			{isLoading && <Loader size={40}/>}
+			{!isLoading && (
 				<NeighborhoodsListContent>
 					{neighborhoods.map((item) => {
 						return (<NeighborhoodCard key={item._id} neighborhood={item}/>);
