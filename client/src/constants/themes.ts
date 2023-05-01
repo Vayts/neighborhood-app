@@ -3,6 +3,7 @@ export const THEMES = {
 		componentBg: '#fff',
 		bgColor: '#F9F8F8',
 		txtColor: '#2E3A59',
+		txtReverseColor: '#fff',
 		subTxtColor: '#768396',
 		lightGray: '#F3F3F4',
 		primaryRGB: 'rgb(58,100,237, 0.3)',
@@ -19,8 +20,10 @@ export const THEMES = {
 		confirmHover: '#38946b',
 		dangerColor: '#db4d37',
 		dangerHover: '#d24834',
+		waitColor: '#c1a93f',
 		linkColor: '#2e7ae8',
 		linkHover: '#245eb2',
+		tooltipColor: '#2E293D',
 	},
 	dark: {},
 };

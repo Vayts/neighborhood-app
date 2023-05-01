@@ -1,5 +1,6 @@
 {
   "alreadyHaveAnAccount": "Вже маєте обліковий запис?",
+  "alreadyMember": "Вже є учасником",
   "atLeast": "Не менше {{value}} символів",
   "atLeast1Number": "Не менше 1 цифри",
   "atLeast1UpperCase": "Не менше 1 символу у верхньому регистрі",
@@ -11,6 +12,7 @@
   "firstName": "Ім'я",
   "incorrectValue": "Некоректне значення",
   "lastName": "Прізвище",
+  "leaveRequest": "Відправити заявку",
   "lessThan": "Не більше {{value}} символів",
   "login": "Логін",
   "loginInUse": "Логін вже використовується",
@@ -19,6 +21,7 @@
   "neighborhoods": "Сусідства",
   "notifications": "Повідомлення",
   "password": "Пароль",
+  "requestAlreadySent": "Заявку вже надіслано",
   "requiredField": "Обов'язкове поле",
   "search": "Пошук",
   "signIn": "Увійти",

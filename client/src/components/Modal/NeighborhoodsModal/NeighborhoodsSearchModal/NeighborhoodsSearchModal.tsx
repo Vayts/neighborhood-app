@@ -66,7 +66,7 @@ export const NeighborhoodsSearchModal: React.FC = () => {
 						<NeighborhoodSearchItem 
 							key={item._id} 
 							neighborhood={item} 
-							status={getNeighborhoodByIdInUserList(userNeighborhoods, item._id)}
+							isInNeighborhood={getNeighborhoodByIdInUserList(userNeighborhoods, item._id)}
 						/>
 					);
 				})}
