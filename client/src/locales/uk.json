@@ -1,5 +1,6 @@
 {
   "alreadyHaveAnAccount": "Вже маєте обліковий запис?",
+  "alreadyInNeighborhood": "Ви вже перебуваєте у цьому сусідстві",
   "alreadyMember": "Вже є учасником",
   "atLeast": "Не менше {{value}} символів",
   "atLeast1Number": "Не менше 1 цифри",
@@ -17,6 +18,8 @@
   "login": "Логін",
   "loginInUse": "Логін вже використовується",
   "mainPage": "Головна",
+  "memberRequestAlreadyHaveBeenSent": "Запит на приєднання вже було відправлено",
+  "memberRequestSent": "Запит на приєднання було надіслано",
   "members": "{{value}} учасник(-ів)",
   "neighborhoods": "Сусідства",
   "notifications": "Повідомлення",

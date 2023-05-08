@@ -3,13 +3,20 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { INeighborhood } from '@src/types/neighborhood.types';
 
 const initialState: INeighborhoodsState = {
-	user: {
+	current: {
 		data: [],
+		loadingIds: [],
+		isLoading: true,
+	},
+	unaccepted: {
+		data: [],
+		loadingIds: [],
 		isLoading: true,
 	},
 	search: {
 		searchValue: '',
 		data: [],
+		loadingIds: [],
 		isLoading: false,
 	},
 };
@@ -18,36 +25,62 @@ export const neighborhoodsSlice = createSlice({
 	name: 'neighborhoods',
 	initialState,
 	reducers: {
-		userNeighborhoodsRequestStart: (state) => {
-			state.user.isLoading = true;
+		currentNeighborhoodsRequestStart: (state) => {
+			state.current.isLoading = true;
 		},
-		userNeighborhoodsRequestEnd: (state) => {
-			state.user.isLoading = false;
+		currentNeighborhoodsRequestEnd: (state) => {
+			state.current.isLoading = false;
 		},
-		setUserNeighborhoods: (state, action: PayloadAction<INeighborhood[]>) => {
-			state.user.data = action.payload;
+		setCurrentNeighborhoods: (state, action: PayloadAction<INeighborhood[]>) => {
+			state.current.data = action.payload;
 		},
+		setCurrentLoadingIds: (state, action: PayloadAction<string[]>) => {
+			state.current.loadingIds = action.payload;
+		},
+		
+		unacceptedNeighborhoodsRequestStart: (state) => {
+			state.unaccepted.isLoading = true;
+		},
+		unacceptedNeighborhoodsRequestEnd: (state) => {
+			state.unaccepted.isLoading = false;
+		},
+		setUnacceptedNeighborhoods: (state, action: PayloadAction<INeighborhood[]>) => {
+			state.unaccepted.data = action.payload;
+		},
+		setUnacceptedLoadingIds: (state, action: PayloadAction<string[]>) => {
+			state.unaccepted.loadingIds = action.payload;
+		},
+		
 		setSearchValue: (state, action: PayloadAction<string>) => {
 			state.search.searchValue = action.payload;
+		},
+		searchNeighborhoodsRequestStart: (state) => {
+			state.search.isLoading = true;
+		},
+		searchNeighborhoodsRequestEnd: (state) => {
+			state.search.isLoading = false;
 		},
 		setSearchNeighborhoods: (state, action: PayloadAction<INeighborhood[]>) => {
 			state.search.data = action.payload;
 		},
-		searchRequestStart: (state) => {
-			state.search.isLoading = true;
-		},
-		searchRequestEnd: (state) => {
-			state.search.isLoading = false;
+		setSearchLoadingIds: (state, action: PayloadAction<string[]>) => {
+			state.search.loadingIds = action.payload;
 		},
 	},
 });
 
 export const { 
-	userNeighborhoodsRequestStart, 
-	userNeighborhoodsRequestEnd, 
-	setUserNeighborhoods,
+	currentNeighborhoodsRequestStart,
+	currentNeighborhoodsRequestEnd,
+	searchNeighborhoodsRequestEnd,
+	searchNeighborhoodsRequestStart,
+	setUnacceptedLoadingIds,
+	setUnacceptedNeighborhoods,
+	setCurrentNeighborhoods,
+	unacceptedNeighborhoodsRequestEnd,
+	unacceptedNeighborhoodsRequestStart,
+	setSearchLoadingIds,
+	setCurrentLoadingIds,
 	setSearchValue,
-	searchRequestStart,
 	setSearchNeighborhoods,
-	searchRequestEnd,
 } = neighborhoodsSlice.actions;

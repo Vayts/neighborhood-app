@@ -14,30 +14,24 @@ export const NeighborhoodSearchItemInfo = styled.div`
 
 export const NeighborhoodSearchItemIcon = styled.span<INeighborhoodSearchStyle>`
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
+	align-items: center;
 	font-size: 20px;
 	width: 30px;
-	height: 100%;
-	${({ isInNeighborhood }) => {
-		if (!isInNeighborhood) {
+	height: 30px;
+	border-radius: 50%;
+	position: relative;
+	color: ${({ theme }) => theme.subTxtColor};
+	${({ isInNeighborhood, isLoading }) => {
+		if (!isInNeighborhood && !isLoading) {
 			return css`
 				color: ${({ theme }) => theme.txtColor};
-
+				
         &:hover {
-          color: ${({ theme }) => theme.primary};
+          background-color: ${({ theme }) => theme.lightGray};
+	        cursor: pointer;
+          color: ${({ theme }) => theme.primaryHover};
         }
-			`;
-		}
-
-		if (isInNeighborhood?.status) {
-			return css`
-        color: ${({ theme }) => theme.confirmHover};
-			`;
-		}
-
-		if (!isInNeighborhood?.status) {
-			return css`
-				color: ${({ theme }) => theme.waitColor};
 			`;
 		}
 	}};

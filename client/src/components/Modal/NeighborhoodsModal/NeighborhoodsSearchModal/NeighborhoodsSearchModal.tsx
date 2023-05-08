@@ -7,24 +7,23 @@ import {
 	NeighborhoodsSearchWrapper,
 } from '@src/components/Modal/NeighborhoodsModal/NeighborhoodsSearchModal/style';
 import { useAppDispatch, useAppSelector } from '@src/hooks/hooks';
-import {
-	selectNeighborhoodsSearch,
-	selectNeighborhoodsSearchList,
-	selectNeighborhoodsSearchLoading, selectUserNeighborhoods,
-} from '@src/store/neighborhoods/selectors';
 import { setSearchValue } from '@src/store/neighborhoods/reducer';
 import {
 	NeighborhoodSearchItem,
 } from '@src/components/Modal/NeighborhoodsModal/NeighborhoodsSearchModal/NeighborhoodSearchItem/NeighborhoodSearchItem';
 import { Loader } from '@src/components/Loader/Loader';
 import { searchNeighborhoodsRequest } from '@src/store/neighborhoods/actions';
-import { getNeighborhoodByIdInUserList } from '@helpers/neighborhood.helper';
+import {
+	selectSearchNeighborhoods, selectSearchNeighborhoodsLoading,
+	selectSearchNeighborhoodsLoadingIds,
+	selectSearchNeighborhoodsValue,
+} from '@src/store/neighborhoods/selectors';
 
 export const NeighborhoodsSearchModal: React.FC = () => {
-	const searchValue = useAppSelector(selectNeighborhoodsSearch);
-	const neighborhoods = useAppSelector(selectNeighborhoodsSearchList);
-	const userNeighborhoods = useAppSelector(selectUserNeighborhoods);
-	const isLoading = useAppSelector(selectNeighborhoodsSearchLoading);
+	const searchValue = useAppSelector(selectSearchNeighborhoodsValue);
+	const neighborhoods = useAppSelector(selectSearchNeighborhoods);
+	const loadingIds = useAppSelector(selectSearchNeighborhoodsLoadingIds);
+	const isLoading = useAppSelector(selectSearchNeighborhoodsLoading);
 	const dispatch = useAppDispatch();
 	const searchRef = useRef(null);
 	const [timeout, setSearchTimeout] = useState(null);
@@ -33,6 +32,10 @@ export const NeighborhoodsSearchModal: React.FC = () => {
 		if (searchRef.current) {
 			searchRef.current.focus();
 		}
+		
+		return () => {
+			clearTimeout(timeout);
+		};
 	}, []);
 	
 	const setSearch = (e) => {
@@ -65,14 +68,14 @@ export const NeighborhoodsSearchModal: React.FC = () => {
 					return (
 						<NeighborhoodSearchItem 
 							key={item._id} 
-							neighborhood={item} 
-							isInNeighborhood={getNeighborhoodByIdInUserList(userNeighborhoods, item._id)}
+							neighborhood={item}
+							isLoading={loadingIds.includes(item._id)}
 						/>
 					);
 				})}
 			</NeighborhoodSearchList>
 			{isLoading && <Loader size={60}/>}
-			{searchValue && !timeout && !isLoading && !neighborhoods.length
+			{!isLoading && !neighborhoods.length
 				&& <NeighborhoodsNothingFound>Нічого не знайдено</NeighborhoodsNothingFound>}
 		</NeighborhoodsSearchWrapper>
 	);

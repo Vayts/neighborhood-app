@@ -3,6 +3,7 @@ import { IUserList } from '@src/components/UI/UserList/types';
 import { UserListItem, UserListItemFiller, UserListWrapper } from '@src/components/UI/UserList/style';
 
 export const UserList: React.FC<IUserList> = ({ users, clickable, margin, size }) => {
+	console.log(users);
 	const checkUserCounter = () => {
 		return users.length > 3;
 	};

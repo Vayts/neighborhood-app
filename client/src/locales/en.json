@@ -1,5 +1,6 @@
 {
   "alreadyHaveAnAccount": "Already have an Account?",
+  "alreadyInNeighborhood": "You are already in this neighborhood",
   "alreadyMember": "Already a member",
   "atLeast": "Must be at least {{value}} characters",
   "atLeast1Number": "At least 1 number",
@@ -17,6 +18,8 @@
   "login": "Login",
   "loginInUse": "Login is already in use",
   "mainPage": "Main",
+  "memberRequestAlreadyHaveBeenSent": "Member request has already been sent",
+  "memberRequestSent": "Member request has been sent ",
   "members": "{{value}} member(-s)",
   "neighborhoods": "Neighborhoods",
   "notifications": "Notifications",

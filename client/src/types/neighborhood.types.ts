@@ -5,7 +5,10 @@ export interface INeighborhood {
 	title: string,
 	description: string,
 	type: string,
-	status: boolean,
 	creationDate: Date,
 	members: IUserInNeighborhood[],
+}
+
+export interface INeighborhoodSearchItem extends INeighborhood {
+	status: 1 | 2 | 0;
 }

@@ -8,6 +8,7 @@ import {
 import { NeighborhoodsController } from './neighborhoods.controller';
 import { NeighborhoodsService } from './neighborhoods.service';
 import { Neighborhood_Users, Neighborhood_UserSchema } from '../../schemas/neighborhood_user.schema';
+import { Neighborhood_Invites, Neighborhood_InvitesSchema } from '../../schemas/neighborhood_invites.schema';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { Neighborhood_Users, Neighborhood_UserSchema } from '../../schemas/neigh
     MongooseModule.forFeature([
       { name: Neighborhood.name, schema: NeighborhoodSchema },
 	    { name: Neighborhood_Users.name, schema: Neighborhood_UserSchema },
+	    { name: Neighborhood_Invites.name, schema: Neighborhood_InvitesSchema },
     ]),
   ],
   controllers: [NeighborhoodsController],

@@ -7,5 +7,6 @@ export const ROUTES = {
 	neighborhoods: {
 		userNeighborhoods: '/neighborhoods/all',
 		searchNeighborhoods: '/neighborhoods/search',
+		memberRequest: '/neighborhoods/member_request',
 	},
 };

@@ -1,13 +1,20 @@
-import { INeighborhood } from '@src/types/neighborhood.types';
+import { INeighborhood, INeighborhoodSearchItem } from '@src/types/neighborhood.types';
 
 export interface INeighborhoodsState {
-	user: {
+	current: {
 		data: INeighborhood[],
+		loadingIds: string[],
+		isLoading: boolean,
+	},
+	unaccepted: {
+		data: INeighborhood[],
+		loadingIds: string[],
 		isLoading: boolean,
 	},
 	search: {
 		searchValue: string,
-		data: INeighborhood[],
+		loadingIds: string[],
+		data: INeighborhoodSearchItem[],
 		isLoading: boolean,
 	}
 }

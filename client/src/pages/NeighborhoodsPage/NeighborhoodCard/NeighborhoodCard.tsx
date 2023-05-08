@@ -12,7 +12,7 @@ import { INeighborhoodCard } from '@src/pages/NeighborhoodsPage/NeighborhoodCard
 
 export const NeighborhoodCard: React.FC<INeighborhoodCard> = ({ neighborhood }) => {
 	return (
-		<NeighborhoodCardWrapper status={neighborhood.status}>
+		<NeighborhoodCardWrapper>
 			<NeighborhoodCardTopContent>
 				<AvatarFiller text={neighborhood.title} size={45}/>
 				<UserList users={neighborhood.members}/>

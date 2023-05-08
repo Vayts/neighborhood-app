@@ -1,10 +1,11 @@
-import { INeighborhood } from '@src/types/neighborhood.types';
+import { INeighborhoodSearchItem } from '@src/types/neighborhood.types';
 
 export interface INeighborhoodSearch {
-	neighborhood: INeighborhood,
-	isInNeighborhood: INeighborhood,
+	neighborhood: INeighborhoodSearchItem,
+	isLoading: boolean,
 }
 
 export interface INeighborhoodSearchStyle {
-	isInNeighborhood: INeighborhood,
+	isInNeighborhood: boolean,
+	isLoading: boolean,
 }

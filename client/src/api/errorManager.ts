@@ -10,6 +10,10 @@ function generateErrorMessage(error) {
 		return 'wrngLoginPassword';
 	case ERRORS.USER_ALREADY_EXIST:
 		return 'loginInUse';
+	case ERRORS.REQUEST_ALREADY_SENT:
+		return 'memberRequestAlreadyHaveBeenSent';
+	case ERRORS.USER_ALREADY_IN_NEIGHBORHOOD:
+		return 'alreadyInNeighborhood';
 	default:
 		return 'smtWntWrng';
 	}

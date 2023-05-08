@@ -3,12 +3,14 @@ import { InjectModel } from '@nestjs/mongoose';
 import mongoose, { Model } from 'mongoose';
 import { Neighborhood, NeighborhoodDocument } from '../../schemas/neighborhood.schema';
 import { Neighborhood_UserDocument, Neighborhood_Users } from '../../schemas/neighborhood_user.schema';
+import { Neighborhood_Invites, Neighborhood_InvitesDocument } from '../../schemas/neighborhood_invites.schema';
 
 @Injectable()
 export class NeighborhoodsService {
   constructor(
 		@InjectModel(Neighborhood.name) private neighborhoodModel: Model<NeighborhoodDocument>,
-		@InjectModel(Neighborhood_Users.name) private neighborhood_UserModel: Model<Neighborhood_UserDocument>
+		@InjectModel(Neighborhood_Users.name) private neighborhood_UserModel: Model<Neighborhood_UserDocument>,
+		@InjectModel(Neighborhood_Invites.name) private neighborhood_InviteModel: Model<Neighborhood_InvitesDocument>
 	) {}
 	
 	getUserNeighborhoods(req) {
@@ -19,31 +21,6 @@ export class NeighborhoodsService {
 					localField: "_id",
 					foreignField: "neighborhood_id",
 					as: "usersInNeighborhoods"
-				}
-			},
-			{
-				$lookup: {
-					from: "neighborhood_users",
-					let: { neighborhood_id: "$_id", user_id: new mongoose.Types.ObjectId(req.user._id) },
-					pipeline: [
-						{
-							$match: {
-								$expr: {
-									$and: [
-										{ $eq: ["$neighborhood_id", "$$neighborhood_id"] },
-										{ $eq: ["$user_id", "$$user_id"] }
-									]
-								}
-							}
-						},
-						{
-							$project: {
-								_id: 0,
-								status: 1
-							}
-						}
-					],
-					as: "status"
 				}
 			},
 			{
@@ -63,12 +40,6 @@ export class NeighborhoodsService {
 			{
 				$addFields: {
 					members: "$usersData",
-					status: {
-						$let: {
-							vars: { s: { $arrayElemAt: ["$status", 0] } },
-							in: "$$s.status"
-						}
-					},
 				}
 			},
 			{
@@ -79,15 +50,57 @@ export class NeighborhoodsService {
 					type: 1,
 					neighborhoods: 1,
 					members: 1,
-					status: 1
 				}
 			},
 
 		])
 	}
 	
-	getNeighborhoodsByTitle(req, title) {
-		return this.neighborhoodModel.aggregate([
+	getNeighborhoodByIdAndUserId(neighborhoodId, userId) {
+		return this.neighborhood_UserModel.findOne({
+			user_id: new mongoose.Types.ObjectId(userId),
+			neighborhood_id: new mongoose.Types.ObjectId(neighborhoodId),
+		})
+	}
+	
+	getNeighborhoodInviteByIdAndUserId(neighborhoodId, userId) {
+		return this.neighborhood_InviteModel.findOne({
+			user_id: new mongoose.Types.ObjectId(userId),
+			neighborhood_id: new mongoose.Types.ObjectId(neighborhoodId),
+		})
+	}
+	
+	async getNeighborhoodsByTitle(req, title) {
+		const userNeighborhoods = await this.neighborhood_UserModel.aggregate([
+			{
+				$match: { user_id: new mongoose.Types.ObjectId(req.user._id) }
+			},
+			{
+				$project: {
+					neighborhood_id: { $toString: "$neighborhood_id" }
+				}
+			},
+		]).then((data) => {
+			return data.map((item) => {
+				return item.neighborhood_id;
+			})
+		})
+		const userInvites = await this.neighborhood_InviteModel.aggregate([
+			{
+				$match: { user_id: new mongoose.Types.ObjectId(req.user._id) }
+			},
+			{
+				$project: {
+					neighborhood_id: { $toString: "$neighborhood_id" }
+				}
+			},
+		]).then((data) => {
+			return data.map((item) => {
+				return item.neighborhood_id;
+			})
+		})
+		
+		const searchResult = await this.neighborhoodModel.aggregate([
 			{
 				$lookup: {
 					from: "neighborhood_users",
@@ -126,7 +139,21 @@ export class NeighborhoodsService {
 					members: 1,
 				}
 			}
-		])
-		// return this.neighborhoodModel.find({ title: { $regex: new RegExp(title, 'i') } });
+		]);
+		
+		return searchResult.map((item) => {
+			if (userNeighborhoods.includes(item._id.toString())) return {...item, status: 2}
+			if (userInvites.includes(item._id.toString())) return  {...item, status: 1}
+			return {...item, status: 0}
+		})
+	}
+	
+	sendMemberRequest(req, neighborhoodId) {
+		
+		return this.neighborhood_InviteModel.insertMany([{
+			neighborhood_id: new mongoose.Types.ObjectId(neighborhoodId),
+			user_id: new mongoose.Types.ObjectId(req.user._id),
+			status: false,
+		}])
 	}
 }
